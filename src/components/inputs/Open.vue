@@ -1,0 +1,121 @@
+<template>
+	<div class="open-input">
+		<textarea class="textarea-question" name="textarea" v-model="questionData.selectedAnswer"  placeholder="Write your answer here" v-bind:class="hasText ? 'has-text' : ''"></textarea>
+	</div>
+</template>
+
+<script>
+export default {
+ 	name: 'openQuestion',
+	components: {
+		
+		
+	},
+	props: ["questionData"],
+	computed:{
+		hasText:function(){
+			if(this.questionData.selectedAnswer.length !== 0 && this.questionData.selectedAnswer !== "" ){
+				return true
+			}else{
+			return false
+			}
+		},
+	},
+  data() {
+    return {
+
+    }
+  },
+	methods: {
+
+	},
+	 mounted () {
+
+	 }
+}
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+	.open-input{
+		padding:0;
+		margin: 0 auto;
+		max-width: calc(100% - 10%);
+	}
+	.textarea-question {
+		min-height:187px;
+		margin: 0 auto;
+		background: #EFF3F5;
+		border:0;
+		-moz-border-radius: 5px;
+		-webkit-border-radius: 5px;
+		border-radius: 5px;
+		padding: 14px 24px;
+		-webkit-transition: all 0.3s cubic-bezier(0.39, 0.575, 0.565, 1);
+		-o-transition: all 0.3s cubic-bezier(0.39, 0.575, 0.565, 1);
+		transition: all 0.3s cubic-bezier(0.39, 0.575, 0.565);
+	}
+	textarea{
+		resize:none;
+		width: 100%;
+		overflow:hidden;
+		font-family: "Segoe UI", "Helvetica", "Arial", sans-serif !important;
+		font-size: 14px;
+		line-height: 18px;
+		font-weight:600;
+
+	}
+	textarea:placeholder-shown{
+		color: #6D7886;
+		font-style:italic;
+		font-weight: normal;
+	}
+
+	textarea:focus {
+		background: #D1DBE4;
+    color:#434A54;
+	}
+	textarea.has-text{
+		background: #D1DBE4;
+		color:#434A54;
+
+	}
+	@media (min-width: 768px) {
+	.open-input{
+		max-width: calc(100% - 30px);
+	}
+		
+	}
+	@media (min-width: 991px) {
+		.open-input{
+			max-width: 66.66667%;
+			margin-left: 30px;
+
+		}
+		textarea{
+			width: 100%;
+			font-size: 14px;
+			line-height: 18px;
+		}
+		.textarea-question{
+			min-height:120px;
+		}
+	}
+	@media (min-width: 1200px) {
+		.open-input{
+			max-width: 66.66667%;
+			margin-left: 30px;
+		}
+		textarea{
+			width: 100%;
+			font-size: 14px;
+			line-height: 18px;
+		}
+		.textarea-question{
+			min-height:120px;
+		}
+
+		
+	}
+
+</style>
